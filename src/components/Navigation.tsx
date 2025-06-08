@@ -2,49 +2,56 @@
 import { Crown, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
-    { label: "Kingdom", href: "#home" },
-    { label: "App Hub", href: "#apps" },
-    { label: "Media", href: "#media" },
-    { label: "Create", href: "#create" },
-    { label: "Store", href: "#store" },
+    { label: "Kingdom", href: "/" },
+    { label: "App Hub", href: "/app-mod-hub" },
+    { label: "Media", href: "/media-library" },
+    { label: "Latest", href: "/latest-releases" },
+    { label: "Trending", href: "/trending-mods" },
   ];
+
+  const handleJoinElite = () => {
+    window.open('https://t.me/ankitKingdom_prime', '_blank');
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 glass-effect border-b border-border">
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center space-x-3">
+          <Link to="/" className="flex items-center space-x-3">
             <Crown className="w-8 h-8 text-primary" />
             <span className="text-xl font-black text-foreground">
               ANKIT'S KINGDOM
             </span>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.label}
-                href={item.href}
+                to={item.href}
                 className="text-foreground hover:text-primary transition-colors font-medium"
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
           </div>
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="outline" size="sm" className="neon-border">
-              Login
-            </Button>
-            <Button size="sm" className="gradient-purple-blue text-white">
+            <Link to="/login">
+              <Button variant="outline" size="sm" className="neon-border">
+                Login
+              </Button>
+            </Link>
+            <Button size="sm" className="gradient-purple-blue text-white" onClick={handleJoinElite}>
               Join Elite
             </Button>
           </div>
@@ -65,20 +72,22 @@ const Navigation = () => {
           <div className="md:hidden mt-6 pb-6 border-t border-border">
             <div className="space-y-4 mt-6">
               {navItems.map((item) => (
-                <a
+                <Link
                   key={item.label}
-                  href={item.href}
+                  to={item.href}
                   className="block text-foreground hover:text-primary transition-colors font-medium"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.label}
-                </a>
+                </Link>
               ))}
               <div className="pt-4 space-y-3">
-                <Button variant="outline" className="w-full neon-border">
-                  Login
-                </Button>
-                <Button className="w-full gradient-purple-blue text-white">
+                <Link to="/login" onClick={() => setIsMenuOpen(false)}>
+                  <Button variant="outline" className="w-full neon-border">
+                    Login
+                  </Button>
+                </Link>
+                <Button className="w-full gradient-purple-blue text-white" onClick={handleJoinElite}>
                   Join Elite
                 </Button>
               </div>

@@ -13,7 +13,7 @@ const VipAccess = () => {
       price: "$9.99",
       period: "/month",
       features: [
-        "Unlimited Downloads",
+        "Unlimited Purchases",
         "Priority Support",
         "Early Access to Mods",
         "Ad-Free Experience",
@@ -51,22 +51,16 @@ const VipAccess = () => {
     }
   ];
 
+  const handleJoinElite = () => {
+    window.open('https://t.me/ankitKingdom_prime', '_blank');
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
       
       <main className="pt-24 pb-12">
         <div className="max-w-7xl mx-auto px-6">
-          {/* Header */}
-          <div className="flex items-center gap-4 mb-8">
-            <Link to="/">
-              <Button variant="outline" size="sm" className="neon-border">
-                <ArrowLeft className="w-4 h-4 mr-2" />
-                Back to Kingdom
-              </Button>
-            </Link>
-          </div>
-
           <div className="text-center mb-12">
             <div className="flex justify-center mb-6">
               <Crown className="w-16 h-16 text-primary animate-pulse-glow" />
@@ -80,7 +74,7 @@ const VipAccess = () => {
           </div>
 
           {/* Pricing Plans */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-12">
             {plans.map((plan, index) => (
               <Card key={index} className={`glass-effect hover-glow transition-all duration-300 overflow-hidden relative ${plan.popular ? 'ring-2 ring-primary' : ''}`}>
                 {plan.popular && (
@@ -112,13 +106,31 @@ const VipAccess = () => {
                   <Button 
                     className={`w-full ${plan.popular ? 'gradient-purple-blue text-white' : 'neon-border'} font-bold`}
                     variant={plan.popular ? 'default' : 'outline'}
+                    onClick={handleJoinElite}
                   >
                     {plan.popular && <Star className="w-4 h-4 mr-2" />}
-                    Choose {plan.name}
+                    Purchase {plan.name}
                   </Button>
                 </div>
               </Card>
             ))}
+          </div>
+
+          {/* Show More Button */}
+          <div className="text-center mb-8">
+            <Button variant="outline" className="neon-border">
+              Show More Plans
+            </Button>
+          </div>
+
+          {/* Back to Kingdom Button */}
+          <div className="text-center mb-12">
+            <Link to="/">
+              <Button variant="outline" size="lg" className="neon-border">
+                <ArrowLeft className="w-4 h-4 mr-2" />
+                Back to Kingdom
+              </Button>
+            </Link>
           </div>
 
           {/* Benefits Section */}
@@ -138,7 +150,7 @@ const VipAccess = () => {
               <div className="glass-effect p-6 rounded-lg">
                 <Check className="w-12 h-12 text-cyber-orange mx-auto mb-4" />
                 <h3 className="font-bold mb-2">No Limits</h3>
-                <p className="text-sm text-muted-foreground">Unlimited downloads and ad-free experience</p>
+                <p className="text-sm text-muted-foreground">Unlimited purchases and ad-free experience</p>
               </div>
             </div>
           </div>

@@ -12,6 +12,7 @@ import VipAccess from "./pages/VipAccess";
 import Favorites from "./pages/Favorites";
 import AppModHub from "./pages/AppModHub";
 import MediaLibrary from "./pages/MediaLibrary";
+import Login from "./pages/Login";
 
 const queryClient = new QueryClient();
 
@@ -29,6 +30,7 @@ const App = () => (
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/app-mod-hub" element={<AppModHub />} />
           <Route path="/media-library" element={<MediaLibrary />} />
+          <Route path="/login" element={<Login />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
