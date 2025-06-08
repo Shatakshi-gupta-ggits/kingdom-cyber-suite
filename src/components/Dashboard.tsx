@@ -1,5 +1,6 @@
 
 import { GamepadIcon, Film, Edit3, ShoppingBag, Download, Zap, Crown, Star } from "lucide-react";
+import { Link } from "react-router-dom";
 import ServiceCard from "./ServiceCard";
 
 const Dashboard = () => {
@@ -9,12 +10,14 @@ const Dashboard = () => {
       description: "Premium modded apps, games, and utilities. Get exclusive access to the latest hacked APKs and iOS modifications with security verification.",
       icon: GamepadIcon,
       gradient: "gradient-purple-blue",
+      link: "/app-mod-hub"
     },
     {
       title: "Media Library",
       description: "Latest movies, trending shows, and exclusive content. High-quality downloads with multiple format options and instant streaming.",
       icon: Film,
       gradient: "gradient-orange-pink",
+      link: "/media-library"
     },
     {
       title: "Creative Suite",
@@ -22,6 +25,7 @@ const Dashboard = () => {
       icon: Edit3,
       gradient: "bg-gradient-to-br from-cyan-500 to-blue-600",
       comingSoon: true,
+      link: "#"
     },
     {
       title: "King Wholesale",
@@ -29,14 +33,15 @@ const Dashboard = () => {
       icon: ShoppingBag,
       gradient: "bg-gradient-to-br from-yellow-500 to-orange-600",
       comingSoon: true,
+      link: "#"
     },
   ];
 
   const quickActions = [
-    { icon: Download, label: "Latest Releases", count: "12 New" },
-    { icon: Zap, label: "Trending Mods", count: "Hot" },
-    { icon: Crown, label: "VIP Access", count: "Elite" },
-    { icon: Star, label: "Favorites", count: "24" },
+    { icon: Download, label: "Latest Releases", count: "12 New", link: "/latest-releases" },
+    { icon: Zap, label: "Trending Mods", count: "Hot", link: "/trending-mods" },
+    { icon: Crown, label: "VIP Access", count: "Elite", link: "/vip-access" },
+    { icon: Star, label: "Favorites", count: "24", link: "/favorites" },
   ];
 
   return (
@@ -54,29 +59,31 @@ const Dashboard = () => {
       {/* Quick Actions */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
         {quickActions.map((action, index) => (
-          <div
+          <Link
             key={action.label}
-            className="glass-effect p-4 rounded-lg hover-glow cursor-pointer group"
+            to={action.link}
+            className="glass-effect p-4 rounded-lg hover-glow cursor-pointer group block"
           >
             <action.icon className="w-8 h-8 text-primary mb-2 group-hover:scale-110 transition-transform" />
             <div className="text-sm font-medium text-foreground">{action.label}</div>
             <div className="text-xs text-accent">{action.count}</div>
-          </div>
+          </Link>
         ))}
       </div>
 
       {/* Main Services Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {services.map((service, index) => (
-          <div
+          <Link
             key={service.title}
-            className="cursor-pointer"
+            to={service.link}
+            className={`cursor-pointer block ${service.comingSoon ? 'pointer-events-none' : ''}`}
             style={{
               animationDelay: `${index * 0.1}s`,
             }}
           >
             <ServiceCard {...service} />
-          </div>
+          </Link>
         ))}
       </div>
 

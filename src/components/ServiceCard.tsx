@@ -8,11 +8,12 @@ interface ServiceCardProps {
   icon: LucideIcon;
   gradient: string;
   comingSoon?: boolean;
+  link?: string;
 }
 
 const ServiceCard = ({ title, description, icon: Icon, gradient, comingSoon }: ServiceCardProps) => {
   return (
-    <Card className="relative group glass-effect hover-glow transition-all duration-300 overflow-hidden">
+    <Card className="relative group glass-effect hover-glow transition-all duration-300 overflow-hidden h-full">
       <div className={`absolute inset-0 opacity-10 ${gradient}`}></div>
       <div className="relative p-6 h-full flex flex-col">
         <div className="flex items-center justify-between mb-4">
@@ -34,7 +35,7 @@ const ServiceCard = ({ title, description, icon: Icon, gradient, comingSoon }: S
         
         <div className="mt-4 pt-4 border-t border-border">
           <div className="text-xs text-accent font-medium">
-            Click to Enter →
+            {comingSoon ? "Coming Soon →" : "Click to Enter →"}
           </div>
         </div>
       </div>
