@@ -7,7 +7,12 @@ const Hero = () => {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-purple-950/20 to-cyan-950/20">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%238B5CF6" fill-opacity="0.1"%3E%3Ccircle cx="7" cy="7" r="1"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute top-10 left-10 w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+          <div className="absolute top-32 right-20 w-1 h-1 bg-accent rounded-full animate-pulse delay-300"></div>
+          <div className="absolute bottom-40 left-1/4 w-1.5 h-1.5 bg-cyber-purple rounded-full animate-pulse delay-700"></div>
+          <div className="absolute top-1/3 right-1/3 w-1 h-1 bg-cyber-blue rounded-full animate-pulse delay-1000"></div>
+        </div>
       </div>
       
       {/* Main Content */}
