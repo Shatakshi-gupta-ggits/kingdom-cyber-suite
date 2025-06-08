@@ -53,16 +53,6 @@ const AppModHub = () => {
       
       <main className="pt-24 pb-12">
         <div className="max-w-7xl mx-auto px-6">
-          {/* Header */}
-          <div className="flex items-center gap-4 mb-8">
-            <Link to="/">
-              <Button variant="outline" size="sm" className="neon-border">
-                <ArrowLeft className="w-4 h-4 mr-2" />
-                Back to Kingdom
-              </Button>
-            </Link>
-          </div>
-
           <div className="text-center mb-12">
             <div className="flex justify-center mb-6">
               <GamepadIcon className="w-16 h-16 text-primary animate-pulse-glow" />
@@ -147,6 +137,16 @@ const AppModHub = () => {
                 </div>
               </Card>
             ))}
+          </div>
+
+          {/* Back to Kingdom Button */}
+          <div className="flex justify-center mt-12">
+            <Link to="/">
+              <Button variant="outline" size="lg" className="neon-border">
+                <ArrowLeft className="w-4 h-4 mr-2" />
+                Back to Kingdom
+              </Button>
+            </Link>
           </div>
         </div>
       </main>
