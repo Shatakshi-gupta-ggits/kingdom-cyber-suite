@@ -1,4 +1,3 @@
-
 import { 
   Gamepad2, 
   Film, 
@@ -12,14 +11,15 @@ import {
 import ServiceCard from "./ServiceCard";
 
 const Dashboard = () => {
-  const services = [
+  // Featured services (primary actions)
+  const featuredServices = [
     {
       icon: Download,
       title: "Latest Releases",
       description: "Get the newest mods and apps as soon as they're available",
       href: "/latest-releases",
       gradient: "gradient-purple-blue",
-      delay: "delay-100"
+      category: "featured"
     },
     {
       icon: Star,
@@ -27,7 +27,7 @@ const Dashboard = () => {
       description: "Discover what's popular in the modding community",
       href: "/trending-mods",
       gradient: "gradient-orange-pink",
-      delay: "delay-200"
+      category: "featured"
     },
     {
       icon: Crown,
@@ -35,7 +35,7 @@ const Dashboard = () => {
       description: "Exclusive premium content and early access privileges",
       href: "/vip-access",
       gradient: "gradient-purple-blue",
-      delay: "delay-300"
+      category: "premium"
     },
     {
       icon: Heart,
@@ -43,15 +43,19 @@ const Dashboard = () => {
       description: "Your saved mods and content in one place",
       href: "/favorites",
       gradient: "gradient-orange-pink",
-      delay: "delay-400"
-    },
+      category: "personal"
+    }
+  ];
+
+  // Other services (secondary actions)
+  const otherServices = [
     {
       icon: Gamepad2,
       title: "App Mod Hub",
       description: "Premium modded applications and games collection",
       href: "/app-mod-hub",
       gradient: "gradient-purple-blue",
-      delay: "delay-500"
+      category: "hub"
     },
     {
       icon: Film,
@@ -59,7 +63,7 @@ const Dashboard = () => {
       description: "Movies, shows, and entertainment content",
       href: "/media-library",
       gradient: "gradient-orange-pink",
-      delay: "delay-600"
+      category: "hub"
     },
     {
       icon: Palette,
@@ -67,7 +71,7 @@ const Dashboard = () => {
       description: "Professional creative tools and resources",
       href: "#",
       gradient: "gradient-purple-blue",
-      delay: "delay-700"
+      category: "tools"
     },
     {
       icon: ShoppingCart,
@@ -75,13 +79,17 @@ const Dashboard = () => {
       description: "Bulk purchasing and wholesale opportunities",
       href: "#",
       gradient: "gradient-orange-pink",
-      delay: "delay-800"
+      category: "business"
     }
   ];
 
   return (
-    <section className="py-20 px-6 bg-background">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-20 px-6 bg-gradient-to-br from-background via-background/95 to-primary/5 relative">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(139,92,246,0.05),transparent_50%)]"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_80%,rgba(6,182,212,0.05),transparent_50%)]"></div>
+      
+      <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-5xl font-black mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent glow-text">
@@ -92,16 +100,34 @@ const Dashboard = () => {
           </p>
         </div>
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {services.map((service, index) => (
-            <div 
-              key={service.title}
-              className={`animate-fade-in-up ${service.delay}`}
-            >
-              <ServiceCard {...service} />
-            </div>
-          ))}
+        {/* Featured Services Grid */}
+        <div className="mb-16">
+          <h3 className="text-2xl font-bold mb-8 text-center text-primary">Featured Services</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {featuredServices.map((service, index) => (
+              <div 
+                key={service.title}
+                className={`animate-fade-in-up delay-${(index + 1) * 100}`}
+              >
+                <ServiceCard {...service} />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Other Services Grid */}
+        <div>
+          <h3 className="text-2xl font-bold mb-8 text-center text-accent">More Services</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {otherServices.map((service, index) => (
+              <div 
+                key={service.title}
+                className={`animate-fade-in-up delay-${(index + 5) * 100}`}
+              >
+                <ServiceCard {...service} />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
