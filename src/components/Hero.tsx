@@ -1,100 +1,93 @@
 
-import { Crown, Zap, Star } from "lucide-react";
+import { Crown, Zap, Shield, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Animated Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-purple-950/20 to-cyan-950/20">
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-10 left-10 w-2 h-2 bg-primary rounded-full animate-pulse"></div>
-          <div className="absolute top-32 right-20 w-1 h-1 bg-accent rounded-full animate-pulse delay-300"></div>
-          <div className="absolute bottom-40 left-1/4 w-1.5 h-1.5 bg-cyber-purple rounded-full animate-pulse delay-700"></div>
-          <div className="absolute top-1/3 right-1/3 w-1 h-1 bg-cyber-blue rounded-full animate-pulse delay-1000"></div>
-          <div className="absolute top-1/2 left-10 w-1 h-1 bg-cyber-orange rounded-full animate-pulse delay-1500"></div>
-          <div className="absolute bottom-32 right-1/4 w-2 h-2 bg-primary rounded-full animate-pulse delay-2000"></div>
-        </div>
-      </div>
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+      {/* Background Effects */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-background to-accent/20"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(139,92,246,0.1),transparent_50%)]"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(6,182,212,0.1),transparent_50%)]"></div>
       
-      {/* Main Content */}
-      <div className="relative z-10 text-center px-6 max-w-6xl mx-auto">
-        {/* Crown Logo */}
-        <div className="mb-8 flex justify-center animate-slide-up">
-          <div className="relative group">
-            <Crown className="w-24 h-24 text-primary animate-pulse-glow transition-transform duration-300 group-hover:scale-110" />
-            <div className="absolute -top-2 -right-2 animate-bounce">
-              <Star className="w-8 h-8 text-accent animate-pulse delay-500" />
-            </div>
+      <div className="max-w-7xl mx-auto px-6 py-20 text-center relative z-10">
+        {/* Logo Section */}
+        <div className="flex justify-center mb-8 animate-fade-in-up">
+          <div className="relative">
+            <Crown className="w-24 h-24 text-primary animate-pulse-glow" />
+            <div className="absolute inset-0 w-24 h-24 bg-primary/20 rounded-full blur-xl animate-pulse"></div>
           </div>
         </div>
-        
+
         {/* Main Title */}
-        <h1 className="text-6xl md:text-8xl font-black mb-6 bg-gradient-to-r from-primary via-accent to-cyber-orange bg-clip-text text-transparent glow-text animate-slide-up delay-300">
-          ANKIT'S
-          <br />
-          KINGDOM
+        <h1 className="text-5xl md:text-7xl font-black mb-6 animate-fade-in-up delay-200">
+          <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent glow-text">
+            ANKIT'S KINGDOM
+          </span>
         </h1>
-        
+
         {/* Subtitle */}
-        <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto animate-slide-up delay-500 hover:text-foreground transition-colors duration-300">
-          Level 100 Supplier | Premium Mods | Exclusive Content | Creative Tools
+        <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto animate-fade-in-up delay-300">
+          Your ultimate destination for <span className="text-primary font-bold">premium apps</span>, 
+          <span className="text-accent font-bold"> exclusive mods</span>, and 
+          <span className="text-primary font-bold"> high-quality media</span>
         </p>
-        
-        {/* Tagline */}
-        <div className="mb-12 animate-slide-up delay-700">
-          <p className="text-3xl md:text-4xl font-bold mb-4 text-foreground hover:glow-text transition-all duration-300">
-            🎮 ENTER THE KINGDOM 🎮
-          </p>
-          <p className="text-lg text-accent animate-pulse">
-            Where Gaming Meets Innovation
-          </p>
+
+        {/* Feature Highlights */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 max-w-4xl mx-auto">
+          <div className="glass-effect p-6 rounded-xl hover-glow animate-fade-in-up delay-400">
+            <Zap className="w-8 h-8 text-accent mx-auto mb-3" />
+            <h3 className="font-bold text-lg mb-2">Lightning Fast</h3>
+            <p className="text-muted-foreground text-sm">Instant downloads with premium speeds</p>
+          </div>
+          <div className="glass-effect p-6 rounded-xl hover-glow animate-fade-in-up delay-500">
+            <Shield className="w-8 h-8 text-primary mx-auto mb-3" />
+            <h3 className="font-bold text-lg mb-2">100% Secure</h3>
+            <p className="text-muted-foreground text-sm">Verified and tested for your safety</p>
+          </div>
+          <div className="glass-effect p-6 rounded-xl hover-glow animate-fade-in-up delay-600">
+            <Download className="w-8 h-8 text-accent mx-auto mb-3" />
+            <h3 className="font-bold text-lg mb-2">Always Updated</h3>
+            <p className="text-muted-foreground text-sm">Latest versions and trending content</p>
+          </div>
         </div>
-        
+
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-slide-up delay-1000">
-          <Button 
-            size="lg" 
-            className="gradient-purple-blue hover-glow text-white font-bold px-8 py-4 text-lg group transform transition-all duration-300 hover:scale-105"
-          >
-            <Zap className="mr-2 w-5 h-5 group-hover:animate-pulse transition-transform group-hover:rotate-12" />
-            Explore Kingdom
-          </Button>
-          <Button 
-            variant="outline" 
-            size="lg" 
-            className="neon-border bg-transparent hover:bg-primary/10 font-bold px-8 py-4 text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/25"
-          >
-            Join the Elite
-          </Button>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up delay-700">
+          <Link to="/app-mod-hub">
+            <Button size="lg" className="gradient-purple-blue text-white text-lg px-8 py-4 hover:scale-105 transition-all duration-300">
+              <Download className="w-5 h-5 mr-2" />
+              Explore Hub
+            </Button>
+          </Link>
+          <Link to="/vip-access">
+            <Button variant="outline" size="lg" className="neon-border text-lg px-8 py-4 hover:scale-105 transition-all duration-300">
+              <Crown className="w-5 h-5 mr-2" />
+              Get VIP Access
+            </Button>
+          </Link>
         </div>
-        
+
         {/* Stats */}
-        <div className="mt-16 grid grid-cols-3 gap-8 max-w-2xl mx-auto animate-slide-up delay-1200">
-          <div className="text-center group cursor-pointer">
-            <div className="text-3xl font-bold text-primary group-hover:scale-110 transition-transform duration-300">500+</div>
-            <div className="text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-300">Premium Mods</div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 animate-fade-in-up delay-800">
+          <div className="text-center">
+            <div className="text-3xl font-black text-primary mb-2">500+</div>
+            <div className="text-muted-foreground">Premium Apps</div>
           </div>
-          <div className="text-center group cursor-pointer">
-            <div className="text-3xl font-bold text-accent group-hover:scale-110 transition-transform duration-300">1000+</div>
-            <div className="text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-300">Movies & Shows</div>
+          <div className="text-center">
+            <div className="text-3xl font-black text-accent mb-2">1M+</div>
+            <div className="text-muted-foreground">Downloads</div>
           </div>
-          <div className="text-center group cursor-pointer">
-            <div className="text-3xl font-bold text-cyber-orange group-hover:scale-110 transition-transform duration-300">∞</div>
-            <div className="text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-300">Creative Power</div>
+          <div className="text-center">
+            <div className="text-3xl font-black text-primary mb-2">50K+</div>
+            <div className="text-muted-foreground">Happy Users</div>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl font-black text-accent mb-2">24/7</div>
+            <div className="text-muted-foreground">Support</div>
           </div>
         </div>
-      </div>
-      
-      {/* Floating Elements */}
-      <div className="absolute top-20 left-10 opacity-30 animate-bounce delay-2000">
-        <div className="w-4 h-4 bg-primary rounded-full animate-pulse"></div>
-      </div>
-      <div className="absolute bottom-20 right-10 opacity-30 animate-bounce delay-3000">
-        <div className="w-6 h-6 bg-accent rounded-full animate-pulse delay-1000"></div>
-      </div>
-      <div className="absolute top-40 right-20 opacity-20 animate-bounce delay-4000">
-        <div className="w-3 h-3 bg-cyber-purple rounded-full animate-pulse delay-1500"></div>
       </div>
     </section>
   );
