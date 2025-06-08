@@ -1,0 +1,93 @@
+
+import { Crown, Zap, Star } from "lucide-react";
+import { Button } from "@/components/ui/button";
+
+const Hero = () => {
+  return (
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Animated Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-purple-950/20 to-cyan-950/20">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%238B5CF6" fill-opacity="0.1"%3E%3Ccircle cx="7" cy="7" r="1"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
+      </div>
+      
+      {/* Main Content */}
+      <div className="relative z-10 text-center px-6 max-w-6xl mx-auto">
+        {/* Crown Logo */}
+        <div className="mb-8 flex justify-center">
+          <div className="relative">
+            <Crown className="w-24 h-24 text-primary animate-pulse-glow" />
+            <div className="absolute -top-2 -right-2">
+              <Star className="w-8 h-8 text-accent animate-pulse" />
+            </div>
+          </div>
+        </div>
+        
+        {/* Main Title */}
+        <h1 className="text-6xl md:text-8xl font-black mb-6 bg-gradient-to-r from-primary via-accent to-cyber-orange bg-clip-text text-transparent glow-text animate-slide-up">
+          ANKIT'S
+          <br />
+          KINGDOM
+        </h1>
+        
+        {/* Subtitle */}
+        <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto animate-slide-up">
+          Level 100 Supplier | Premium Mods | Exclusive Content | Creative Tools
+        </p>
+        
+        {/* Tagline */}
+        <div className="mb-12 animate-slide-up">
+          <p className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
+            🎮 ENTER THE KINGDOM 🎮
+          </p>
+          <p className="text-lg text-accent">
+            Where Gaming Meets Innovation
+          </p>
+        </div>
+        
+        {/* CTA Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-slide-up">
+          <Button 
+            size="lg" 
+            className="gradient-purple-blue hover-glow text-white font-bold px-8 py-4 text-lg group"
+          >
+            <Zap className="mr-2 w-5 h-5 group-hover:animate-pulse" />
+            Explore Kingdom
+          </Button>
+          <Button 
+            variant="outline" 
+            size="lg" 
+            className="neon-border bg-transparent hover:bg-primary/10 font-bold px-8 py-4 text-lg"
+          >
+            Join the Elite
+          </Button>
+        </div>
+        
+        {/* Stats */}
+        <div className="mt-16 grid grid-cols-3 gap-8 max-w-2xl mx-auto animate-slide-up">
+          <div className="text-center">
+            <div className="text-3xl font-bold text-primary">500+</div>
+            <div className="text-sm text-muted-foreground">Premium Mods</div>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl font-bold text-accent">1000+</div>
+            <div className="text-sm text-muted-foreground">Movies & Shows</div>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl font-bold text-cyber-orange">∞</div>
+            <div className="text-sm text-muted-foreground">Creative Power</div>
+          </div>
+        </div>
+      </div>
+      
+      {/* Floating Elements */}
+      <div className="absolute top-20 left-10 opacity-30">
+        <div className="w-4 h-4 bg-primary rounded-full animate-pulse"></div>
+      </div>
+      <div className="absolute bottom-20 right-10 opacity-30">
+        <div className="w-6 h-6 bg-accent rounded-full animate-pulse delay-1000"></div>
+      </div>
+    </section>
+  );
+};
+
+export default Hero;
